@@ -1,12 +1,13 @@
 import {Component, signal} from '@angular/core';
 import {RouterOutlet} from "@angular/router";
-import {NgIf} from '@angular/common';
+import {NgIf, NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-layout',
   imports: [
     RouterOutlet,
-    NgIf
+    NgIf,
+    NgOptimizedImage
   ],
   templateUrl: './layout.html',
   styleUrl: './layout.css',
