@@ -7,7 +7,6 @@ import {NgIf, NgOptimizedImage} from '@angular/common';
   imports: [
     RouterOutlet,
     NgIf,
-    NgOptimizedImage
   ],
   templateUrl: './layout.html',
   styleUrl: './layout.css',

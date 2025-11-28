@@ -56,12 +56,14 @@
 
         <button
           type="button"
+          (click)="openModal()"
           class="inline-flex items-center gap-2 rounded-full bg-[#8b5cf6] px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-[#7c3aed] transition"
         >
           <span class="text-lg leading-none">+</span>
           <span>Adicionar Conta</span>
         </button>
       </header>
+      <app-create-payment-modal></app-create-payment-modal>
 
       <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         <app-card-payment></app-card-payment>
