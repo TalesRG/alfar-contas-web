@@ -1,0 +1,115 @@
+<div class="min-h-screen flex bg-sky-50 text-slate-700">
+  <!-- SIDEBAR -->
+  @if (sidebarOpen()){
+
+  <aside
+    class="fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-sky-100 shadow-lg
+           lg:static lg:shadow-none flex flex-col"
+  >
+    <!-- topo da sidebar -->
+    <div class="h-16 flex items-center justify-between px-4 border-b border-sky-100 bg-sky-50/60">
+      <span class="text-lg font-semibold tracking-tight text-sky-700">
+        alfar<span class="text-emerald-500">contas</span>
+      </span>
+
+      <!-- botão fechar (desktop e mobile) -->
+      <button
+        type="button"
+        class="inline-flex h-9 w-9 items-center justify-center rounded-lg
+               border border-sky-100 bg-sky-50 text-sky-600 hover:bg-sky-100"
+        (click)="closeSidebar()"
+      >
+        ☰
+      </button>
+    </div>
+
+    <!-- links -->
+    <nav class="flex-1 px-3 py-4 space-y-1 text-sm">
+      <button
+        type="button"
+        class="w-full flex items-center gap-3 rounded-lg px-3 py-2
+               bg-emerald-50 text-emerald-700 font-medium"
+      >
+        <span
+          class="inline-flex h-7 w-7 items-center justify-center rounded-md
+                 bg-emerald-100 text-emerald-600 text-sm"
+        >
+          $
+        </span>
+        <span>Resumo</span>
+      </button>
+
+      <button
+        type="button"
+        class="w-full flex items-center gap-3 rounded-lg px-3 py-2
+               text-slate-600 hover:bg-sky-50 hover:text-sky-700"
+      >
+        <span
+          class="inline-flex h-7 w-7 items-center justify-center rounded-md
+                 bg-sky-100 text-sky-500 text-sm"
+        >
+          💳
+        </span>
+        <span>Cartões</span>
+      </button>
+
+      <button
+        type="button"
+        class="w-full flex items-center gap-3 rounded-lg px-3 py-2
+               text-slate-600 hover:bg-sky-50 hover:text-sky-700"
+      >
+        <span
+          class="inline-flex h-7 w-7 items-center justify-center rounded-md
+                 bg-violet-100 text-violet-500 text-sm"
+        >
+          📅
+        </span>
+        <span>Contas fixas</span>
+      </button>
+    </nav>
+
+    <!-- rodapé -->
+    <div class="px-4 py-3 text-xs border-t border-sky-100 bg-sky-50/60">
+      <p class="text-slate-400">Logado como</p>
+      <p class="font-medium text-slate-700">Ana Luíza</p>
+    </div>
+  </aside>
+  }
+
+  <!-- overlay escuro no mobile quando sidebar aberta -->
+  <div
+    *ngIf="sidebarOpen"
+    class="fixed inset-0 z-30 bg-black/20 lg:hidden"
+    (click)="closeSidebar()"
+  ></div>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <div class="flex-1 flex flex-col relative z-0">
+    <!-- TOPBAR -->
+    <header
+      class="h-16 flex items-center gap-3 border-b border-sky-100 bg-white/80
+             backdrop-blur px-4"
+    >
+      <!-- botão menu (abre/fecha em qualquer tamanho de tela) -->
+      @if (!sidebarOpen()){
+        <button
+          type="button"
+          class="inline-flex h-9 w-9 items-center justify-center rounded-lg
+               border border-sky-100 bg-sky-50 text-sky-600 hover:bg-sky-100"
+          (click)="toggleSidebar()"
+        >
+          ☰
+        </button>
+      }
+
+      <h1 class="text-base font-semibold text-slate-800">
+        Resumo das contas
+      </h1>
+    </header>
+
+    <!-- ÁREA DE CONTEÚDO -->
+    <main class="flex-1 p-4">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
